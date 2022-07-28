@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
+
 const rateLimit = require('express-rate-limit');
 const { globalErrorHandler } = require('./controllers/error.controller');
 
@@ -10,6 +12,7 @@ const { cartRouter } = require('./routes/cart.routes');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(morgan('common'));
 
 const limiter = rateLimit({
   max: 10000,

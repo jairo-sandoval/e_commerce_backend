@@ -13,4 +13,4 @@ db.sync()
   .then(() => console.log('database synced'))
   .catch(err => console.log(err));
 
-app.listen(PORT);
+app.listen(process.env.PORT || PORT);
